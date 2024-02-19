@@ -7,15 +7,19 @@ import java.util.List;
 
 @Repository
 public class MemberDAO {
-    private final List<MemberDTO> memberlist;
+    private final List<MemberDTO> memberList;
 
-    public MemberDAO(List<MemberDTO> memberlist) {
-        memberlist = memberlist;
-        memberlist.add(new MemberDTO(1L, "유관순"));
-        memberlist.add(new MemberDTO(2L, "홍길동"));
+    public MemberDAO() {
+        memberList = new ArrayList<>();
+        memberList.add(new MemberDTO(1L, "유관순"));
+        memberList.add(new MemberDTO(2L, "홍길동"));
     }
 
-    public List<MemberDTO> findAllmembers(){
-        return memberlist;
+    public List<MemberDTO> selectAllmembers(){
+        return memberList;
+    }
+
+    public MemberDTO selectMemberby(int index){
+        return memberList.get(index);
     }
 }

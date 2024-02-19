@@ -1,5 +1,6 @@
 package com.ohgiraffers.section01.aop;
 
+import jdk.jfr.Name;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,10 +20,13 @@ public class MemberService {
         this.memberDAO = memberDAO;
     }
 
-    public List<MemberDTO> fineAllMembers() {
-        return memberDAO.findAllmembers();
+    public List<MemberDTO> findAllmembers() {
+        System.out.println("target -> findAllMembers 실행");
+        return memberDAO.selectAllmembers();
     }
 
-    public fineAllMemberBy(long l) {
+    public MemberDTO findMemberBy(int index) {
+        System.out.println("target -> findMemberBy 실행");
+        return memberDAO.selectMemberby(index);
     }
 }
